@@ -1,28 +1,26 @@
+#include <stdlib.h>
 #include <stdio.h>
-#include <math.h>
+#include <string.h>
+
+char source[] = "The source string.";
+
+int main() {
+    char dest1[80];
+    char *dest2, *dest3;
+
+    printf("\nsource: %s", source );
+
+    strcpy(dest1, source); /*dest1 ima 80 bajta alociranog prostora. */
+    printf("\ndest1: %s", dest1);
+
+    /* za kopiranje na dest2, najpre moramo alocirati prostor*/
+    dest2 = (char *)malloc(strlen(source) +1);
+    strcpy(dest2, source);
+    printf("\ndest2: %s\n", dest2);
+
+    /* Bez alociranja prostora bi moglo prouzrokovati ozbiljne probleme.*/
+    //strcpy(dest3, source);
 
 
-
-void main(void)
-{
-
-    char rec1[50], rec2[50];
-
-    strcpy(rec1, "halo");
-    strcpy(rec2, "halo");
-
-    // AKO UNOSIMO?
-    //scanf("%s %s", rec1, rec2);
-
-
-    if( strcmp(rec1, rec2) ) {   // strcmp VRACA 0 AKO SU ISTE. 
-        printf("Reci su razlicite!\n");
-    } else {
-        printf("Reci su potpuno iste!\n");
-    }
-
-    //strlen
-    char rec[50] = "duzina";
-    printf( "%d\n", strlen(rec));
-
+    return 0;
 }
